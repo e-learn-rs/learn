@@ -25,7 +25,7 @@ public class ValidateNumber
 		catch(ValidateNumberException e)
 		{ 
 			e.printStackTrace();
-			System.out.println("Exception [ "+e.getMessage()+" ] ");  
+			System.out.println("Exception [ "+e+" ] ");  
  		}
 	}
 
