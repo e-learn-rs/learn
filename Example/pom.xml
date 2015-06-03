@@ -23,6 +23,7 @@
 								<value>org.uncommons.reportng.JUnitXMLReporter,org.uncommons.reportng.HTMLReporter</value>
 							</property>
 						</properties>
+<<<<<<< HEAD
 					</configuration>
 				</plugin>
 				<plugin>
@@ -31,6 +32,8 @@
 					<configuration>
 						<source>1.6</source>
 						<target>1.6</target>
+=======
+>>>>>>> changes in project from mac
 					</configuration>
 				</plugin>
 			</plugins>
