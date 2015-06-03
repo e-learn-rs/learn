@@ -35,13 +35,13 @@ public class Program
 		}
 		UserService us = new UserService(client);
 		String username = "Robin Singh"; 
-		us.createUser(username, "Navi", "male", "cricket,football,cycling"); 
-		//us.printUserDetails(username);
+		//us.createUser(username, "Navi", "male", "cricket,football,cycling"); 
+		us.printUserDetails(username);
 		TweetService ts = new TweetService(client);
-		//ts.scanAllTweets();
+		ts.scanAllTweets();
 		ts.createTweet(username, "I am enjoying cricket"); 
-		//us.printUserDetails(username); 
-		//us.printUserTweets(username);  
+		us.printUserDetails(username); 
+		us.printUserTweets(username);  
 		client.close();
 	}
 	
