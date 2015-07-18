@@ -1,7 +1,10 @@
 package example.collection.student;
 
-public class Student 
-{
+import java.util.Comparator;
+
+public class Student implements Comparator<Student>, Comparable<Student>
+{ 
+	
 	private String name;
 	private int rollNumber;
 	private float percentage = 33.0f; 
@@ -45,5 +48,60 @@ public class Student
 	public void setPercentage(float percentage) {
 		this.percentage = percentage;
 	}
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + rollNumber;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (rollNumber != other.rollNumber)
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compare(Student arg0, Student arg1) {
+		// TODO Auto-generated method stub
+		if(arg0.getRollNumber() > arg1.getRollNumber())
+		{
+			return 1;
+		}
+		else if(arg0.getRollNumber() < arg1.getRollNumber())
+		{
+			return -1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		// TODO Auto-generated method stub
+		if(this.rollNumber > o.rollNumber)
+		{
+			return 1;
+		}
+		else if(this.rollNumber < o.rollNumber)
+		{
+			return -1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+
 
 }

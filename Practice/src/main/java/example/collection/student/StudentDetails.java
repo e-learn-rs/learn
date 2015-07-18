@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class StudentDetails
 {
@@ -30,10 +31,21 @@ public class StudentDetails
 		new StudentCollectionUtil().printStudentDetails(collection);  
 	}
 	
+	public void StudentTreeSetExample() 
+	{
+		Collection collection = new TreeSet(); 
+		int[] randomNumbers = studentHelper.getRandomNumbers(20); 
+		for(int i = 0 ; i < 20 ; i++)
+		{
+			collection.add(new Student(studentHelper.getRandomStringOfAlphabets(20), randomNumbers[i]));     
+		}
+		new StudentCollectionUtil().printStudentDetails(collection);  
+	}
+	
 	public static void main(String args[])
 	{
 		StudentDetails test = new StudentDetails(); 
-		test.StudentListExample();  	 
+		test.StudentTreeSetExample();  	 
 	}
 
 }
