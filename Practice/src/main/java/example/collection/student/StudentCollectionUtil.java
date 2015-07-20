@@ -12,10 +12,11 @@ public class StudentCollectionUtil
 		{
 			Object obj = iterator.next();
 			Student student = (Student)obj;
-			System.out.println("\nDetails of roll number :: "+student.getRollNumber()); 
+			System.out.println(student+"\n");  
+			/* System.out.println("\nDetails of roll number :: "+student.getRollNumber()); 
 			System.out.println("Name :: "+student.getName()); 
 			System.out.println("Standard :: "+student.getStandard()); 
-			System.out.println("Percentage :: "+student.getPercentage()); 
+			System.out.println("Percentage :: "+student.getPercentage()); */
 		}
 	}
 	

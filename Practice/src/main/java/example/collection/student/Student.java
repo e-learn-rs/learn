@@ -102,6 +102,12 @@ public class Student implements Comparator<Student>, Comparable<Student>
 			return 0;
 		}
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Roll Number :: "+rollNumber+"\nName :: "+name+"\n%age :: "+percentage+"\nStandard :: "+std;
+	}
 
 
 }
