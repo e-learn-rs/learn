@@ -2,7 +2,7 @@ package example.collection.student;
 
 import java.util.Comparator;
 
-public class Student implements Comparator<Student>, Comparable<Student>
+public class Student implements /* Comparator<Student>,*/ Comparable<Student>
 { 
 	
 	private String name;
@@ -72,9 +72,8 @@ public class Student implements Comparator<Student>, Comparable<Student>
 		return true;
 	}
 
-	@Override
+	/*@Override
 	public int compare(Student arg0, Student arg1) {
-		// TODO Auto-generated method stub
 		if(arg0.getRollNumber() > arg1.getRollNumber())
 		{
 			return 1;
@@ -84,11 +83,10 @@ public class Student implements Comparator<Student>, Comparable<Student>
 			return -1;
 		}
 		return 0;
-	}
+	}*/
 
 	@Override
 	public int compareTo(Student o) {
-		// TODO Auto-generated method stub
 		if(this.rollNumber > o.rollNumber)
 		{
 			return 1;
