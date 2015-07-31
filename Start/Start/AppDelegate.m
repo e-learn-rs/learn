@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ExampleOne.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    ExampleOne *exampleObject = [[ExampleOne alloc]init];
+    [exampleObject examplePublicMethod];
+    int sum = [ExampleOne getSumOfNumber:12 andNumber:13];
+    NSLog(@"Sum of 12 and 13 is %d",sum);
     return YES;
 }
 

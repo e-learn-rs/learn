@@ -24,4 +24,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)publicMethod
+{
+    
+}
+
+-(void)privateMethod
+{
+    
+}
 @end
