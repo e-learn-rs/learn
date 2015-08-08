@@ -22,6 +22,7 @@
     [exampleObject examplePublicMethod];
     int sum = [ExampleOne getSumOfNumber:12 andNumber:13];
     NSLog(@"Sum of 12 and 13 is %d",sum);
+    NSDictionary *dic = nil;
     return YES;
 }
 

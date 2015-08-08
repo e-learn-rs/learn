@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    IBOutlet UILabel * myLabel;
+}
 
 -(void)publicMethod;
+
+
 @end
 

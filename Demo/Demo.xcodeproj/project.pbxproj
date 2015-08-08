@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		00B76E5A1B6AB021001EB9D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B76E591B6AB021001EB9D7 /* main.m */; };
 		00B76E621B6AB436001EB9D7 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B76E611B6AB436001EB9D7 /* Calculator.m */; };
+		00C409071B73DA3C002C8BE0 /* StringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C409061B73DA3C002C8BE0 /* StringExample.m */; };
+		00C4090A1B73E1A3002C8BE0 /* NSArray+Length.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C409091B73E1A3002C8BE0 /* NSArray+Length.m */; };
+		00D231B11B728D5900874457 /* ArrayExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D231B01B728D5900874457 /* ArrayExample.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,12 @@
 		00B76E591B6AB021001EB9D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00B76E601B6AB436001EB9D7 /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		00B76E611B6AB436001EB9D7 /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
+		00C409051B73DA3C002C8BE0 /* StringExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringExample.h; sourceTree = "<group>"; };
+		00C409061B73DA3C002C8BE0 /* StringExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringExample.m; sourceTree = "<group>"; };
+		00C409081B73E1A3002C8BE0 /* NSArray+Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Length.h"; sourceTree = "<group>"; };
+		00C409091B73E1A3002C8BE0 /* NSArray+Length.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Length.m"; sourceTree = "<group>"; };
+		00D231AF1B728D5900874457 /* ArrayExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayExample.h; sourceTree = "<group>"; };
+		00D231B01B728D5900874457 /* ArrayExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayExample.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,12 @@
 				00B76E591B6AB021001EB9D7 /* main.m */,
 				00B76E601B6AB436001EB9D7 /* Calculator.h */,
 				00B76E611B6AB436001EB9D7 /* Calculator.m */,
+				00D231AF1B728D5900874457 /* ArrayExample.h */,
+				00D231B01B728D5900874457 /* ArrayExample.m */,
+				00C409051B73DA3C002C8BE0 /* StringExample.h */,
+				00C409061B73DA3C002C8BE0 /* StringExample.m */,
+				00C409081B73E1A3002C8BE0 /* NSArray+Length.h */,
+				00C409091B73E1A3002C8BE0 /* NSArray+Length.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -123,6 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00D231B11B728D5900874457 /* ArrayExample.m in Sources */,
+				00C409071B73DA3C002C8BE0 /* StringExample.m in Sources */,
+				00C4090A1B73E1A3002C8BE0 /* NSArray+Length.m in Sources */,
 				00B76E5A1B6AB021001EB9D7 /* main.m in Sources */,
 				00B76E621B6AB436001EB9D7 /* Calculator.m in Sources */,
 			);

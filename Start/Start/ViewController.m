@@ -16,7 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    myLabel.text = @"SNAPDEAL LIFT";
+    myLabel.backgroundColor = [UIColor blueColor];
+    myLabel.textColor = [UIColor whiteColor];
+    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Alert Title" message:@"Some Message" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Good",@"Bad", nil];
+    [alertView show];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Button pressed at index %d", buttonIndex);
 }
 
 - (void)didReceiveMemoryWarning {

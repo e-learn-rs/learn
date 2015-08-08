@@ -10,4 +10,5 @@
 
 @interface NewClass : NSObject
 
+
 @end
