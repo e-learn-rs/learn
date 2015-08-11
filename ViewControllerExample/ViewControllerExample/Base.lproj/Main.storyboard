@@ -72,7 +72,7 @@
                                     <action selector="logout:" destination="xow-rd-R9o" eventType="touchUpInside" id="YtI-Bc-ZU4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoN-mz-9P4">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoN-mz-9P4">
                                 <rect key="frame" x="523" y="39" width="49" height="30"/>
                                 <state key="normal" title="&lt; Back">
                                     <color key="titleColor" red="0.067356138915808897" green="0.084370871318561511" blue="0.34505208333333337" alpha="1" colorSpace="calibratedRGB"/>
