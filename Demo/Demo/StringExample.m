@@ -19,4 +19,18 @@
 {
     return [str stringByReplacingOccurrencesOfString:replaceString withString:toBeReplacedString];
 }
+
+-(NSString *)combineStrings:(NSString *)stringOne withString:(NSString *)stringTwo
+{
+    NSMutableString *resultString = [[NSMutableString alloc]initWithString:stringOne ];
+    [resultString appendString:@" "];
+    [resultString appendString:stringTwo]; 
+    return resultString;
+}
+
+-(NSString *)combineStringsUsingFormat:(NSString *)stringOne withString:(NSString *)stringTwo
+{
+    return [NSString stringWithFormat:@"%@ %@",stringOne,stringTwo]; 
+}
+
 @end

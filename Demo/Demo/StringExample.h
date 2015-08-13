@@ -12,4 +12,6 @@
 
 -(void) printStringLength :(NSString *)str;
 -(NSString *)replaceString :(NSString *)str replace:(NSString *)replaceString withString:(NSString *)toBeReplacedString;
+-(NSString*)combineStrings:(NSString*) stringOne withString:(NSString*) stringTwo;
+-(NSString *)combineStringsUsingFormat:(NSString *) stringOne withString:(NSString*) stringTwo;
 @end

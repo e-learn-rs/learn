@@ -20,7 +20,7 @@
                                 <rect key="frame" x="118" y="60" width="377" height="348"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DtW-Ik-QmT">
-                                        <rect key="frame" x="32" y="41" width="313" height="276"/>
+                                        <rect key="frame" x="32" y="36" width="313" height="276"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
