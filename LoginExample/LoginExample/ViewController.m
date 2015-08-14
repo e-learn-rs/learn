@@ -32,8 +32,6 @@
      pwd = @"snap123";
      maximumAttempts = 3;
      numberOfAttempts = 0;
-     userNameField.delegate = self;
-     passwordField.delegate = self;
      [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)]];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -45,12 +43,15 @@
 
 -(IBAction)clickOnSubmit:(id)sender
 {
-    if (numberOfAttempts > 3) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:@"Your attempts have exceeded maximum limit of 3" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+      numberOfAttempts++;
+
+    if (numberOfAttempts > maximumAttempts) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SORRY" message:@"Your attempts have exceeded maximum limit of 3" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
     }
-    numberOfAttempts++;
+  
+    else
+    {
     NSString *userName = userNameField.text;
     NSString *password = passwordField.text;
     if ([self validateUser:userName andPassword:password])
@@ -58,21 +59,39 @@
         successLabel.text = @"Login successful";
         successLabel.textColor = [UIColor whiteColor];
     }
-    else
-    {
-        successLabel.textColor = [UIColor redColor];
-        int attemptsLeft = maximumAttempts - numberOfAttempts;
-        successLabel.text = [NSString stringWithFormat:@"Invalid username or password.Please try again You have %d attempts left",attemptsLeft];
     }
     
 }
 
 -(BOOL)validateUser:(NSString*) username andPassword :(NSString*)password
 {
+    if (Nil == username || username.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:[NSString stringWithFormat:@"Username field can't be empty. %@",[self getAttemptsRemaining]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    if(Nil == password || password.length == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:[NSString stringWithFormat:@"Password field can't be empty. %@",[self getAttemptsRemaining]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
     if ([username isEqualToString:user] && [password isEqualToString:pwd]) {
         return true;
     }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:[NSString stringWithFormat:@"Invalid username or password. %@",[self getAttemptsRemaining]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
         return false;
+
+    }
+        return false;
+}
+
+-(NSString *)getAttemptsRemaining
+{
+    int attemptsLeft = maximumAttempts - numberOfAttempts;
+    return [NSString stringWithFormat:@"You have %d attempts left",attemptsLeft];
 }
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField

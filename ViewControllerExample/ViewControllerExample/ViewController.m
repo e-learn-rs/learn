@@ -31,6 +31,7 @@
 -(IBAction)submit:(id)sender
 {
     SecondViewController *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+    [self.view removeConstraints:self.view.constraints];
     [self addChildViewController:svc];
     [self.view addSubview:svc.view];
     

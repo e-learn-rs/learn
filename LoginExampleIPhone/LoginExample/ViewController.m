@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "LoadingViewController.h"
 @interface ViewController () <UITextFieldDelegate>
 {
     IBOutlet UILabel * successLabel;
@@ -45,34 +45,74 @@
 
 -(IBAction)clickOnSubmit:(id)sender
 {
-    if (numberOfAttempts > 3) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:@"Your attempts have exceeded maximum limit of 3" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        
-    }
+    
     numberOfAttempts++;
-    NSString *userName = userNameField.text;
-    NSString *password = passwordField.text;
-    if ([self validateUser:userName andPassword:password])
-    {
-        successLabel.text = @"Login successful";
-        successLabel.textColor = [UIColor whiteColor];
+    
+    if (numberOfAttempts > maximumAttempts) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SORRY" message:@"Your attempts have exceeded maximum limit of 3" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }
+    
     else
     {
-        successLabel.textColor = [UIColor redColor];
-        int attemptsLeft = maximumAttempts - numberOfAttempts;
-        successLabel.text = [NSString stringWithFormat:@"Invalid username or password.Please try again You have %d attempts left",attemptsLeft];
+        NSString *userName = userNameField.text;
+        NSString *password = passwordField.text;
+        if ([self validateUser:userName andPassword:password])
+        {
+            if ([self isUserAlreadySignedUp:userName]) {
+                 LoadingViewController *lvc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoadingViewController"];
+                [self addChildViewController:lvc];
+                [self.view addSubview:lvc.view];
+                self.title = @"Recommendations";
+
+            }
+            else{
+                
+            }
+            
+
+           // successLabel.text = @"Login successful";
+           // successLabel.textColor = [UIColor whiteColor];
+        }
     }
+
     
 }
 
 -(BOOL)validateUser:(NSString*) username andPassword :(NSString*)password
 {
+    if (Nil == username || username.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:[NSString stringWithFormat:@"Username field can't be empty. %@",[self getAttemptsRemaining]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
+    if(Nil == password || password.length == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:[NSString stringWithFormat:@"Password field can't be empty. %@",[self getAttemptsRemaining]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return false;
+    }
     if ([username isEqualToString:user] && [password isEqualToString:pwd]) {
         return true;
     }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"WARNING" message:[NSString stringWithFormat:@"Invalid username or password. %@",[self getAttemptsRemaining]] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
         return false;
+        
+    }
+    return false;
+}
+
+-(BOOL)isUserAlreadySignedUp:(NSString *)username
+{
+    return true;
+}
+
+-(NSString *)getAttemptsRemaining
+{
+    int attemptsLeft = maximumAttempts - numberOfAttempts;
+    return [NSString stringWithFormat:@"You have %d attempts left",attemptsLeft];
 }
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
