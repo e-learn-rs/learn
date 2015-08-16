@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LoadingViewController.h"
+#import "ForgotPasswordController.h"
 @interface ViewController () <UITextFieldDelegate>
 {
     IBOutlet UILabel * successLabel;
@@ -79,6 +80,13 @@
     
 }
 
+//-(IBAction)forgotPassword:(id)sender
+//{
+//    ForgotPasswordController *fpc = [self.storyboard instantiateViewControllerWithIdentifier:@"ForgotPasswordController"];
+//    [self addChildViewController:fpc];
+//    [self.view addSubview:fpc.view];
+//}
+
 -(BOOL)validateUser:(NSString*) username andPassword :(NSString*)password
 {
     if (Nil == username || username.length == 0) {
@@ -128,6 +136,12 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    if ([string isEqual:@""]) {
+        return YES;
+    }
+    if (textField.text.length > 30) {
+        return NO;
+    }
     return YES;
 }
 

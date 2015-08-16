@@ -28,7 +28,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (event.type == UIEventTypeTouches) {
-        NSLog(@"Touches has begun");
+        NSLog(@"Touches has begun"); 
     }
 }
 
