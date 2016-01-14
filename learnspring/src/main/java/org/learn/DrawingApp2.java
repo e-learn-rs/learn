@@ -10,5 +10,8 @@ public class DrawingApp2 {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		Triangle t = (Triangle)context.getBean("triangle");
 		t.draw();
+	 	System.out.println(t.getType()); 
+		System.out.println(t.getHeight()); 
 	}
-}
+} 
+  
