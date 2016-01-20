@@ -1,12 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="triangle" class="org.learn.Triangle">
 		<!-- <property name="type" value="Equilateral"></property> -->
-		<!-- <constructor-arg value="Equilateral"></constructor-arg>  -->
-		<!-- <constructor-arg type= "Integer" value="22"></constructor-arg> --> 
-		<constructor-arg index="0" value="Equilateral"></constructor-arg>  
-		<constructor-arg index="1" value="20"></constructor-arg>  
+		<!-- <constructor-arg value="Equilateral"></constructor-arg> -->
+		<!-- <constructor-arg type= "Integer" value="22"></constructor-arg> -->
+		<constructor-arg index="0" value="Equilateral"></constructor-arg>
+		<constructor-arg index="1" value="20"></constructor-arg>
 	</bean>
-</beans>   
+
+	<bean id="square" class="org.learn.Square">
+		<property name="pointA" ref="zeroPoint">
+			<!-- <idref="zeroPoint" /> -->
+		</property>
+		<property name="pointB">
+			<bean class="org.learn.Point">
+				<property name="x" value="1"></property>
+				<property name="y" value="0"></property>
+			</bean>
+		</property>
+		<property name="pointC">
+			<bean class="org.learn.Point">
+				<property name="x" value="0"></property>
+				<property name="y" value="1"></property>
+			</bean>
+		</property>
+		<property name="pointD">
+			<bean class="org.learn.Point">
+				<property name="x" value="1"></property>
+				<property name="y" value="1"></property>
+			</bean>
+		</property>
+		<property name="distances">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="zeroPoint" class="org.learn.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+
+	<!-- <bean id="line" class="org.learn.Line" autowire="byName" scope="prototype"> 
+		</bean> -->
+	<bean id="line" class="org.learn.Line" scope="singleton">
+		<property name="pointA">
+			<bean class="org.learn.Point">
+				<property name="x" value="1"></property>
+				<property name="y" value="0"></property>
+			</bean>
+		</property>
+		<property name="pointB">
+			<bean class="org.learn.Point">
+				<property name="x" value="0"></property>
+				<property name="y" value="1"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pointA" class="org.learn.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="pointB" class="org.learn.Point">
+		<property name="x" value="1"></property>
+		<property name="y" value="1"></property>
+	</bean>
+
+
+	<bean id="batch_parent" class="org.learn.Batch" abstract="true"> 
+		<property name="students">
+			<list>
+				<ref bean="monitor"></ref> 
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="batch_child" class="org.learn.Batch" parent="batch_parent">  
+		<property name="students">
+			<list merge="true"> 
+				<ref bean="student1"></ref>  
+				<ref bean="student2"></ref>  
+			</list> 
+		</property>
+	</bean>
+	
+
+	<bean id="monitor" class="org.learn.Student">
+		<property name="name" value="Robin Singh">
+		</property>
+	</bean>
+	<bean id="student1" class="org.learn.Student">
+		<property name="name" value="Vivek">
+		</property>
+	</bean> 
+	<bean id="student2" class="org.learn.Student">
+		<property name="name" value="Vinay">
+		</property>
+	</bean>
+</beans>    

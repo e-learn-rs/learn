@@ -4,8 +4,6 @@ public class Triangle
 {
 	private String type; 
 	private int height;
-	 
-	
 
 	public Triangle(String type) 
 	{  
