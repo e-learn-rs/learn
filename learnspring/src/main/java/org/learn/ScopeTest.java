@@ -15,5 +15,5 @@ public class ScopeTest
 		Line l2 = (Line)context.getBean("line");
 		l2.draw();
 	} 
-
+ 
 }

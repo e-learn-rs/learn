@@ -13,4 +13,13 @@ public class Batch
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+	public void init()
+	{
+		System.out.println("Initializing Batch..");
+	}
+	
+	public void cleanUp()
+	{
+		System.out.println("Cleaning up batch ...");
+	}
 }

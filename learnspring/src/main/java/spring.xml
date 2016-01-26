@@ -1,7 +1,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-init-method="init" default-destroy-method="cleanUp">
 	<bean id="triangle" class="org.learn.Triangle">
 		<!-- <property name="type" value="Equilateral"></property> -->
 		<!-- <constructor-arg value="Equilateral"></constructor-arg> -->
@@ -73,23 +74,23 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	</bean>
 
 
-	<bean id="batch_parent" class="org.learn.Batch" abstract="true"> 
+	<bean id="batch_parent" class="org.learn.Batch" abstract="true">
 		<property name="students">
 			<list>
-				<ref bean="monitor"></ref> 
+				<ref bean="monitor"></ref>
 			</list>
 		</property>
 	</bean>
-	
-	<bean id="batch_child" class="org.learn.Batch" parent="batch_parent">  
+
+	<bean id="batch_child" class="org.learn.Batch" parent="batch_parent">
 		<property name="students">
-			<list merge="true"> 
-				<ref bean="student1"></ref>  
-				<ref bean="student2"></ref>  
-			</list> 
+			<list merge="true">
+				<ref bean="student1"></ref>
+				<ref bean="student2"></ref>
+			</list>
 		</property>
 	</bean>
-	
+
 
 	<bean id="monitor" class="org.learn.Student">
 		<property name="name" value="Robin Singh">
@@ -98,9 +99,19 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<bean id="student1" class="org.learn.Student">
 		<property name="name" value="Vivek">
 		</property>
-	</bean> 
+	</bean>
 	<bean id="student2" class="org.learn.Student">
 		<property name="name" value="Vinay">
 		</property>
+	</bean>
+
+	<bean id="environment" class="org.learn.Environment">
+		<property name="env" value="${env}"></property>
+	</bean>
+
+	<!-- <bean class="org.learn.DisplayNameBeanPostProcessor"></bean> -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="environment.properties"></property>
 	</bean>
 </beans>    
