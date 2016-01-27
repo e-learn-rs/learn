@@ -114,4 +114,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations" value="environment.properties"></property>
 	</bean>
+
+	<bean id="circle" class="org.learn.Circle">
+		  <property name="center" ref="zeroPoint"></property>   
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" /> 
 </beans>    

@@ -1,6 +1,6 @@
 package org.learn;
 
-public class Line
+public class Line implements Shape
 {
 	private Point pointA;
 	private Point pointB;

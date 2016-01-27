@@ -2,7 +2,7 @@ package org.learn;
 
 import java.util.List;
 
-public class Square
+public class Square implements Shape
 {
 	private Point pointA;
 	private Point pointB;
@@ -52,7 +52,7 @@ public class Square
 
 	public void draw()
 	{
-		System.out.println("Drawing Points. A :: "+pointA+" B :: "+pointB+" C ::"+pointC+" D :: "+pointD); 
+		System.out.println("Drawing Points of a square. A :: "+pointA+" B :: "+pointB+" C ::"+pointC+" D :: "+pointD); 
 	}
 	
 	public void writeDistances()

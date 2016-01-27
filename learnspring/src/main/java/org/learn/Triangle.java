@@ -1,6 +1,6 @@
 package org.learn;
 
-public class Triangle 
+public class Triangle implements Shape
 {
 	private String type; 
 	private int height;
