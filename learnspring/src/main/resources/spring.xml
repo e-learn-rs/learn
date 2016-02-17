@@ -10,10 +10,12 @@
   http://www.springframework.org/schema/context/spring-context-2.5.xsd
   http://www.springframework.org/schema/tx 
   http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
-	xmlns:context="http://www.springframework.org/schema/context"> 
-	
+	xmlns:context="http://www.springframework.org/schema/context">
 
-	 
+
+	<context:annotation-config />
+	<context:component-scan base-package="org.learn"></context:component-scan>
+
 	<bean id="triangle" class="org.learn.Triangle">
 		<!-- <property name="type" value="Equilateral"></property> -->
 		<!-- <constructor-arg value="Equilateral"></constructor-arg> -->
@@ -116,7 +118,7 @@
 		</property>
 	</bean>
 
-	<bean id="environment" class="org.learn.Environment">
+	<bean id="environment1" class="org.learn.Environment">
 		<property name="env" value="${env}"></property>
 	</bean>
 
@@ -126,26 +128,28 @@
 		<property name="locations" value="environment.properties"></property>
 	</bean>
 
-	<!-- <bean id="circle" class="org.learn.Circle">
-		<property name="center" ref="zeroPoint"></property>
-	</bean> -->  
+	<!-- <bean id="circle" class="org.learn.Circle"> <property name="center" 
+		ref="zeroPoint"></property> </bean> -->
 
 	<bean id="PointA" class="org.learn.Point">
-		<qualifier value="circleRelated" /> 
+		<qualifier value="circleRelated" />
 		<property name="x" value="0"></property>
 		<property name="y" value="0"></property>
 	</bean>
-	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-	<property name="basenames">
-	<list>
-	<value>messages</value>
-	</list>
-	</property> 
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
 	</bean>
 
-	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" /> --> 
-   	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />  -->     
-   <context:annotation-config />    
-   <context:component-scan base-package="org.learn"></context:component-scan> 
+
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" 
+		/> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" 
+		/> -->
+
 </beans>    
