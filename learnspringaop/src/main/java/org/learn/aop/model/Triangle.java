@@ -1,0 +1,19 @@
+package org.learn.aop.model;
+
+public class Triangle 
+{
+	private String name; 
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	} 
+
+	public void method2ForCommonAdvice()
+	{
+		System.out.println("Printing method 2 for common  advice");  
+	}
+}
